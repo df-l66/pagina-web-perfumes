@@ -16,7 +16,8 @@ export function CartDrawer() {
     });
     message += `\n*Total: $${cartTotal}*`;
     
-    const whatsappUrl = `https://wa.me/525512345678?text=${encodeURIComponent(message)}`;
+    // Usamos el código de país 57 (Colombia) como prefijo para que el enlace de WhatsApp funcione correctamente
+    const whatsappUrl = `https://wa.me/573052550909?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
