@@ -8,16 +8,16 @@ export function About() {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&q=80&w=1600" 
-            alt="FRANCIAS JM Store" 
-            className="w-full h-full object-cover opacity-30 scale-105"
+            src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=1600" 
+            alt="FRAGANCIAS JM Store" 
+            className="w-full h-full object-cover opacity-40 scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto mt-16">
           <span className="text-amber-500 font-bold tracking-[0.3em] uppercase text-sm mb-6 block">Nuestra Esencia</span>
-          <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 drop-shadow-xl">FRANCIAS JM</h1>
+          <h1 className="text-5xl md:text-7xl font-serif text-white mb-6 drop-shadow-xl">FRAGANCIAS JM</h1>
           <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
             Redefiniendo el lujo olfativo a través de la excelencia, la pasión y la exclusividad.
           </p>
@@ -30,9 +30,9 @@ export function About() {
           <div className="order-2 lg:order-1 relative">
             <div className="absolute -inset-4 border border-amber-500/20 rounded-2xl transform -translate-x-4 translate-y-4 -z-10 hidden md:block"></div>
             <img 
-              src="https://images.unsplash.com/photo-1595425970377-c9703c5eb8ab?auto=format&fit=crop&q=80&w=800" 
-              alt="Artesanía de Perfumes" 
-              className="rounded-2xl shadow-2xl opacity-90 grayscale-[20%] w-full object-cover aspect-[4/5]"
+              src="/fondo.jpeg" 
+              alt="FRAGANCIAS JM Esencia" 
+              className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5] border border-zinc-800/80 hover:border-amber-500/30 transition-colors"
             />
           </div>
           
@@ -40,13 +40,13 @@ export function About() {
             <h2 className="text-3xl sm:text-4xl font-serif text-white mb-8">El Arte de la Perfumería</h2>
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed">
               <p>
-                En <strong className="text-white font-medium">FRANCIAS JM</strong>, no solo vendemos perfumes; entregamos identidades embotelladas. Nacimos con la profunda convicción de que una fragancia es la firma invisible más poderosa que una persona puede dejar.
+                En <strong className="text-white font-medium">FRAGANCIAS JM</strong>, no solo ofrecemos perfumes; entregamos identidades embotelladas. Nacimos con la profunda convicción de que una fragancia es la firma invisible más poderosa que una persona puede llevar consigo.
               </p>
               <p>
-                Nuestro catálogo está cuidadosamente curado para ofrecer dos mundos complementarios: las creaciones <strong className="text-amber-500 font-medium">Originales</strong> de las casas de diseño más prestigiosas, y nuestra exclusiva selección <strong className="text-amber-500 font-medium">1.1</strong>, formulaciones precisas que democratizan el lujo sin sacrificar un ápice de calidad o duración.
+                Nuestro catálogo está cuidadosamente curado para ofrecer universos complementarios: las creaciones <strong className="text-amber-500 font-medium">Originales</strong> de las casas de diseño más prestigiosas, la deslumbrante perfumería <strong className="text-amber-500 font-medium">Árabe</strong> (Lattafa, Armaf, Afnan), y nuestras exclusivas selecciones <strong className="text-amber-500 font-medium">1.1</strong> y preparadas.
               </p>
               <p>
-                Creemos que el lujo debe sentirse en cada detalle, desde el primer roce visual con nuestra tienda hasta la nota de fondo que perdura en tu piel al final del día.
+                Creemos que el lujo debe sentirse en cada detalle, desde el primer instante en que exploras nuestra tienda hasta la nota de fondo que perdura en tu piel al final del día.
               </p>
             </div>
           </div>
@@ -103,11 +103,11 @@ export function About() {
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-amber-500/5 blur-[100px] rounded-full pointer-events-none"></div>
         <div className="max-w-4xl mx-auto relative z-10">
           <p className="text-3xl md:text-5xl font-serif text-white leading-tight italic">
-            "El perfume anuncia la llegada de una mujer y alarga su marcha."
+            "El perfume anuncia la llegada de una persona y alarga su presencia."
           </p>
           <div className="mt-8 flex items-center justify-center gap-4">
             <div className="w-12 h-[1px] bg-amber-500/50"></div>
-            <span className="text-amber-500 font-medium tracking-widest uppercase text-sm">Coco Chanel</span>
+            <span className="text-amber-500 font-medium tracking-widest uppercase text-sm">FRAGANCIAS JM</span>
             <div className="w-12 h-[1px] bg-amber-500/50"></div>
           </div>
         </div>

@@ -27,8 +27,15 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl sm:text-2xl font-serif text-gray-100 tracking-wider">
-                FRANCIAS JM
+              <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
+                <img 
+                  src="/logo.png" 
+                  alt="Fragancias JM Logo" 
+                  className="w-9 h-9 sm:w-11 sm:h-11 object-contain rounded-full border border-amber-500/40 group-hover:border-amber-400 transition-colors shadow-[0_0_15px_rgba(245,158,11,0.2)]" 
+                />
+                <span className="text-lg sm:text-2xl font-serif text-gray-100 tracking-wider group-hover:text-amber-400 transition-colors">
+                  FRAGANCIAS JM
+                </span>
               </Link>
             </div>
             
