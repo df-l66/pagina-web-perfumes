@@ -25,6 +25,10 @@ export function Catalog() {
     if (familyParam) {
       filters.setSelectedFamilies([familyParam]);
     }
+    const searchParam = searchParams.get('search');
+    if (searchParam) {
+      filters.setSearchQuery(searchParam);
+    }
   }, [searchParams]);
 
   const visibleProducts = filters.filteredProducts.slice(0, filters.visibleCount);

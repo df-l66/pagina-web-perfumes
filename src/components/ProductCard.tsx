@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Star, Heart } from 'lucide-react';
+import { Star, Heart, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import type { Product } from '../types';
@@ -131,12 +131,33 @@ export function ProductCard({ product, defaultQuality }: ProductCardProps) {
         </div>
 
         <div className="flex justify-between items-center mt-2">
-          <div className="flex flex-wrap gap-2">
-            <span className="text-xs text-zinc-500 border border-zinc-800 px-2 py-0.5 rounded-full">{product.family}</span>
-            <span className="text-xs text-zinc-500 border border-zinc-800 px-2 py-0.5 rounded-full">{product.category}</span>
+          <div className="flex flex-wrap gap-1.5">
+            <span className="text-[11px] text-zinc-400 border border-zinc-800 px-2 py-0.5 rounded-full">{product.family}</span>
+            <span className="text-[11px] text-zinc-400 border border-zinc-800 px-2 py-0.5 rounded-full">{product.category}</span>
           </div>
           <span className="text-xs text-zinc-500 font-medium font-mono">({selectedQuality})</span>
         </div>
+
+        {/* Mobile touch button for easy checkout */}
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            addToCart({ 
+              id: product.id, 
+              name: product.name, 
+              brand: product.brand, 
+              price: product.price, 
+              image: product.image, 
+              type: selectedQuality 
+            });
+          }}
+          disabled={product.outOfStock}
+          className="w-full mt-3 py-2 bg-amber-500 hover:bg-amber-400 disabled:bg-zinc-800 disabled:text-zinc-500 text-zinc-950 font-bold text-xs rounded-xl transition-all shadow sm:hidden flex items-center justify-center gap-1.5"
+        >
+          <ShoppingBag className="w-3.5 h-3.5" />
+          {product.outOfStock ? 'Agotado' : 'Añadir al Carrito'}
+        </button>
       </div>
     </div>
   );
