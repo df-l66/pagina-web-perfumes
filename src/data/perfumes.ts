@@ -3035,7 +3035,7 @@ export const CATALOG_PRODUCTS = [
     "outOfStock": false,
     "type": "Original",
     "linea": "Árabe",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO8GNUXiBthMDsnOrsu2rcrrrvQFxji5rsyBUNSuRxAw&s"
+    "image": "https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_webp,s_webp/nuestrasfragancias.com/wp-content/uploads/2025/07/9am-pour-Femme-Afnan-100ml-EDP-1024x1024.jpg"
   },
   {
     "id": 321,
