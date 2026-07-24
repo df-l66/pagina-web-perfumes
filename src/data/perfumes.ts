@@ -1161,7 +1161,6 @@ export const CATALOG_PRODUCTS = [
     "linea": "Internacional",
     "image": "https://www.sephora.com/productimages/sku/s1200773-main-zoom.jpg?imwidth=315"
   },
-  
   {
     "id": 184,
     "name": "One Million Lucky",
@@ -2993,7 +2992,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://m.media-amazon.com/images/I/51h+3KRCLiL.jpg"
   },
   {
@@ -3007,7 +3006,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://fandi-perfume.com/cdn/shop/products/rasasi-hawas-for-her-women-s-perfume-cologne-for-women-eau-de-parfum-3-33-oz-edp-1217985071.jpg?v=1769576913"
   },
   {
@@ -3021,7 +3020,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw40C64m2MeWcgRW_474TS-Lg-ouEkmm8Z2R0dONYAiyjp47up74XCIpU&s=10"
   },
   {
@@ -3035,7 +3034,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO8GNUXiBthMDsnOrsu2rcrrrvQFxji5rsyBUNSuRxAw&s"
   },
   {
@@ -3049,7 +3048,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP4JEUN8qNtNGIrUs2gRGfw-DkElnokExEfrPKq86ZW6Ew_vZER1WFnP4n&s=10"
   },
   {
@@ -3063,7 +3062,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcD-DRNZZLNNcr9qz5wV9mjWIlN4L8oH2Rem70_6aoew&s"
   },
   {
@@ -3119,7 +3118,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://i.ebayimg.com/images/g/ycQAAOSwQXxmKeFS/s-l1200.jpg"
   },
   {
@@ -3133,7 +3132,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTewQtvOVLKhH4m6cxGYz0oQoGT2vEECsAfDqCrGOMyUb_qTHoKOjBTpYLu&s=10"
   },
   {
@@ -3147,7 +3146,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://labelleperfumes.com/cdn/shop/products/orientica-royal-amber.jpg?v=1762270711"
   },
   {
@@ -3161,7 +3160,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP9_ptmwp-7-0Ka4haVDR8h3cX-xFzVCdxAGGQSXbNOg&s"
   },
   {
@@ -3175,7 +3174,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://oasisperfumesusa.com/cdn/shop/files/image_2024-06-28_111810909.png?v=1752098257&width=1024"
   },
   {
@@ -3189,7 +3188,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://cdn2.jomashop.com/media/catalog/product/cache/b3e31d40bbb1abcc90b26106659d5d3f/b/h/bharara-unisex-niche-edp-34-oz-fragrances-850050062042.jpg?width=800&height=800"
   },
   {
@@ -3203,7 +3202,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9AQd0wGffexOX8PygHq1t6BENnaqB3KaqphB7uSZEwByjymDIa-gdfjUY&s=10"
   },
   {
@@ -3217,7 +3216,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://ufemme.com/cdn/shop/files/Bharara_-_Rose.png?v=1730888521"
   },
   {
@@ -3231,7 +3230,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://i.ebayimg.com/images/g/TQoAAOSwB9NiSTq5/s-l1200.jpg"
   },
   {
@@ -3245,7 +3244,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://fragrancewholesalerusa.com/cdn/shop/files/0407833a-ac46-432a-b7b6-cd1cf57f3035.png?v=1771962501&width=1024"
   },
   {
@@ -3259,7 +3258,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://princesscosmeticsqa.com/cdn/shop/files/armaf-club-de-nuit-women-105ml-nady-armaf-allyly-llsydat-9664888.jpg?v=1758717301"
   },
   {
@@ -3273,7 +3272,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": ""
   },
   {
@@ -3287,7 +3286,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://valenciaperfumes.com/cdn/shop/files/IMG-5472.png?v=1747247402"
   },
   {
@@ -3301,7 +3300,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://i5.walmartimages.com/seo/Lattafa-Perfumes-Yara-Eau-de-Parfum-for-Women-100ml-3-4oz_ae281192-52d2-48d9-a444-d73da8054d5f.73d3f3ed2fcbe8c395688ccd366386cf.jpeg"
   },
   {
@@ -3315,7 +3314,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://www.lattafa-usa.com/cdn/shop/files/2_9c54476c-b1d0-45ed-9bc9-f9f0e7678e56.png?v=1749487600&width=1500"
   },
   {
@@ -3329,7 +3328,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://www.lattafa-usa.com/cdn/shop/files/Yara-Candy-2_ce1515d9-9405-4151-b4ba-079849346226.png?v=1747416617&width=1500"
   },
   {
@@ -3343,7 +3342,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://www.oboojabeauty.com/cdn/shop/files/rn-image_picker_lib_temp_dab98970-8bd7-4867-bdc5-eed603e87a1f.png?v=1774820088&width=980"
   },
   {
@@ -3357,7 +3356,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0NkBTZJ7aRsBJHgtwBLk8guLH-RQ91gbzNBoDw1j0yx5nvuV-mwp70VM&s=10"
   },
   {
@@ -3371,7 +3370,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://www.lattafa-usa.com/cdn/shop/files/Emaan-2.png?v=1747421403&width=1500"
   },
   {
@@ -3385,7 +3384,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPfgTfahIrmBJwLVIq7wgmNJTFmS6WK7kuqHCPaTpzBkF2JGHPFbXkjoay&s=10"
   },
   {
@@ -3399,7 +3398,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPX8cjCMRzEUP-f8IfBX2benf2B-HideBMldaK8_RCBH8eVTT84Wa-ykIj&s=10"
   },
   {
@@ -3413,7 +3412,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQexPeUnbOcfA38WFMeGmGJva73_kEFcVH_apxuJFixi8BW2sGs8hZJU4o&s=10"
   },
   {
@@ -3427,7 +3426,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://www.lattafa-usa.com/cdn/shop/files/Badee-Al-Oud-Amethyst-2.png?v=1747422428&width=1500"
   },
   {
@@ -3441,7 +3440,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://www.lattafa-usa.com/cdn/shop/files/2_7f7a2c86-3138-4e61-a04d-56907552a5aa.png?v=1747556003&width=1500"
   },
   {
@@ -3455,7 +3454,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://www.lattafa-usa.com/cdn/shop/files/1_c8222ab0-b780-478f-b854-e18ad4cf34da.png?v=1749325975"
   },
   {
@@ -3469,7 +3468,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeJFwM248qYzz5gmS9291rL0E0ybvZKoxv2ceSlpncNGxMFomOH9TAdRTs&s=10"
   },
   {
@@ -3483,7 +3482,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://luegopagocdn.azureedge.net/content-process/products-images/prod/3335/d2fe3740-5fec-47c4-8005-f5be820cccb9.webp"
   },
   {
@@ -3497,7 +3496,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://cdn2.jomashop.com/media/catalog/product/l/a/lattafa-unisex-ajwad-edp-spray-203-oz-fragrances-6291108732489.jpg"
   },
   {
@@ -3567,7 +3566,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://m.media-amazon.com/images/I/61x3GvRF53L.jpg"
   },
   {
@@ -3581,7 +3580,7 @@ export const CATALOG_PRODUCTS = [
     "isNew": false,
     "outOfStock": false,
     "type": "Original",
-    "linea": "Internacional",
+    "linea": "Árabe",
     "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC7r3lQIjaDIYFmR2pQd2PMEpWRhaHvrF2O-eiXJLGAz_PpSgJfHsIt5F_&s=10"
   },
   {

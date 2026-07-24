@@ -1,9 +1,11 @@
-import { ShoppingBag, Search, Menu } from 'lucide-react';
+import { ShoppingBag, Search, Menu, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
 
 export function Navbar() {
   const { cartCount, openCart } = useCart();
+  const { wishlistCount } = useWishlist();
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
@@ -24,6 +26,18 @@ export function Navbar() {
             <button className="text-gray-300 hover:text-amber-500 transition-colors">
               <Search className="w-5 h-5" />
             </button>
+            <Link 
+              to="/catalog?favorites=true" 
+              className="text-gray-300 hover:text-rose-500 transition-colors relative"
+              title="Ver mis favoritos"
+            >
+              <Heart className={`w-5 h-5 ${wishlistCount > 0 ? 'text-rose-500 fill-rose-500' : ''}`} />
+              {wishlistCount > 0 && (
+                <span className="absolute -top-1 -right-2 bg-rose-600 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full animate-pulse">
+                  {wishlistCount}
+                </span>
+              )}
+            </Link>
             <button 
               onClick={openCart}
               className="text-gray-300 hover:text-amber-500 transition-colors relative"

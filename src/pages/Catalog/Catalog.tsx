@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Filter, ChevronDown, Search } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Filter, ChevronDown, Search, Heart } from 'lucide-react';
 import { CATALOG_PRODUCTS } from '../../data/perfumes';
 import { ProductCard } from '../../components/ProductCard';
 import { CatalogSidebar } from '../../components/CatalogSidebar';
@@ -8,15 +9,24 @@ import { useCatalogFilters, type SortOption } from '../../hooks/useCatalogFilter
 const BRANDS = Array.from(new Set(CATALOG_PRODUCTS.map((p: any) => p.brand))).sort();
 const CATEGORIES = ['Hombre', 'Mujer', 'Unisex'];
 const FAMILIES = Array.from(new Set(CATALOG_PRODUCTS.map((p: any) => p.family))).sort();
-const TYPES = ['Original', '1.1', 'Preparada'];
-const LINEAS = ['Internacional', 'Árabe'];
 
 export function Catalog() {
+  const [searchParams] = useSearchParams();
   const [isMobileFiltersOpen, setIsMobileFiltersOpen] = useState(false);
   const [isSortOpen, setIsSortOpen] = useState(false);
   
   const filters = useCatalogFilters({ products: CATALOG_PRODUCTS as any[] });
-  
+
+  useEffect(() => {
+    if (searchParams.get('favorites') === 'true') {
+      filters.setShowOnlyFavorites(true);
+    }
+    const familyParam = searchParams.get('family');
+    if (familyParam) {
+      filters.setSelectedFamilies([familyParam]);
+    }
+  }, [searchParams]);
+
   const visibleProducts = filters.filteredProducts.slice(0, filters.visibleCount);
 
   return (
@@ -32,6 +42,17 @@ export function Catalog() {
           
           {/* Controls Bar */}
           <div className="flex flex-wrap items-center gap-4 md:gap-6">
+            <button
+              onClick={() => filters.setShowOnlyFavorites(!filters.showOnlyFavorites)}
+              className={`flex items-center text-sm px-4 py-2.5 rounded-full transition-all border ${
+                filters.showOnlyFavorites 
+                  ? 'bg-rose-500/20 text-rose-300 border-rose-500/50 font-medium' 
+                  : 'bg-zinc-900 border-zinc-800 text-gray-300 hover:text-white'
+              }`}
+            >
+              <Heart className={`w-4 h-4 mr-2 ${filters.showOnlyFavorites ? 'fill-rose-500 text-rose-500' : ''}`} />
+              {filters.showOnlyFavorites ? 'Mostrando Favoritos' : 'Mis Favoritos'}
+            </button>
             <div className="relative flex-1 md:flex-none min-w-[200px]">
               <input 
                 type="text" 
@@ -51,8 +72,6 @@ export function Catalog() {
                 Ordenar por: 
                 <span className="text-amber-500 ml-2 font-medium">
                   {filters.sortBy === 'featured' && 'Destacados'}
-                  {filters.sortBy === 'price-asc' && 'Precio: Menor a Mayor'}
-                  {filters.sortBy === 'price-desc' && 'Precio: Mayor a Menor'}
                   {filters.sortBy === 'newest' && 'Más Recientes'}
                 </span>
                 <ChevronDown className="h-4 w-4 ml-2" />
@@ -64,8 +83,6 @@ export function Catalog() {
                     {[
                       { value: 'featured', label: 'Destacados' },
                       { value: 'newest', label: 'Más Recientes' },
-                      { value: 'price-asc', label: 'Precio: Menor a Mayor' },
-                      { value: 'price-desc', label: 'Precio: Mayor a Menor' },
                     ].map((option) => (
                       <button
                         key={option.value}
@@ -102,23 +119,17 @@ export function Catalog() {
             <CatalogSidebar 
               isMobileFiltersOpen={isMobileFiltersOpen}
               setIsMobileFiltersOpen={setIsMobileFiltersOpen}
-              TYPES={TYPES}
-              LINEAS={LINEAS}
               CATEGORIES={CATEGORIES}
               FAMILIES={FAMILIES}
               BRANDS={BRANDS}
-              selectedTypes={filters.selectedTypes}
-              setSelectedTypes={filters.setSelectedTypes}
-              selectedLineas={filters.selectedLineas}
-              setSelectedLineas={filters.setSelectedLineas}
+              selectedQualities={filters.selectedQualities}
+              setSelectedQualities={filters.setSelectedQualities}
               selectedCategories={filters.selectedCategories}
               setSelectedCategories={filters.setSelectedCategories}
               selectedFamilies={filters.selectedFamilies}
               setSelectedFamilies={filters.setSelectedFamilies}
               selectedBrands={filters.selectedBrands}
               setSelectedBrands={filters.setSelectedBrands}
-              maxPrice={filters.maxPrice}
-              setMaxPrice={filters.setMaxPrice}
               toggleFilter={filters.toggleFilter}
               filteredCount={filters.filteredProducts.length}
             />
@@ -142,7 +153,7 @@ export function Catalog() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
                     {visibleProducts.map((product) => (
                       <div key={product.id} className="h-full">
-                        <ProductCard product={product as any} />
+                        <ProductCard product={product as any} defaultQuality={filters.activeQuality} />
                       </div>
                     ))}
                   </div>

@@ -1,20 +1,22 @@
 import { useState, useMemo } from 'react';
 import type { Product } from '../types';
+import { type QualityType } from '../utils/quality';
+import { useWishlist } from '../context/WishlistContext';
 
-export type SortOption = 'featured' | 'price-asc' | 'price-desc' | 'newest';
+export type SortOption = 'featured' | 'newest';
 
 interface UseCatalogFiltersProps {
   products: Product[];
 }
 
 export function useCatalogFilters({ products }: UseCatalogFiltersProps) {
+  const { wishlist } = useWishlist();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [selectedLineas, setSelectedLineas] = useState<string[]>([]);
-  const [maxPrice, setMaxPrice] = useState<number>(500);
+  const [selectedQualities, setSelectedQualities] = useState<string[]>([]);
+  const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
   const [sortBy, setSortBy] = useState<SortOption>('featured');
   const [visibleCount, setVisibleCount] = useState(18);
 
@@ -34,14 +36,19 @@ export function useCatalogFilters({ products }: UseCatalogFiltersProps) {
     setSelectedBrands([]);
     setSelectedCategories([]);
     setSelectedFamilies([]);
-    setSelectedTypes([]);
-    setSelectedLineas([]);
-    setMaxPrice(500);
+    setSelectedQualities([]);
+    setShowOnlyFavorites(false);
     setSearchQuery('');
   };
 
+  const activeQuality = selectedQualities.length > 0 ? (selectedQualities[0] as QualityType) : undefined;
+
   const filteredProducts = useMemo(() => {
     let result = products;
+
+    if (showOnlyFavorites) {
+      result = result.filter(p => wishlist.includes(p.id));
+    }
 
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
@@ -60,35 +67,23 @@ export function useCatalogFilters({ products }: UseCatalogFiltersProps) {
     if (selectedFamilies.length > 0) {
       result = result.filter(p => selectedFamilies.includes(p.family));
     }
-    if (selectedTypes.length > 0) {
-      result = result.filter(p => selectedTypes.includes(p.type));
-    }
-    if (selectedLineas.length > 0) {
-      result = result.filter(p => p.linea && selectedLineas.includes(p.linea));
-    }
-    
-    result = result.filter(p => p.price <= maxPrice);
 
     // Ordenamiento
-    if (sortBy === 'price-asc') {
-      result = [...result].sort((a, b) => a.price - b.price);
-    } else if (sortBy === 'price-desc') {
-      result = [...result].sort((a, b) => b.price - a.price);
-    } else if (sortBy === 'newest') {
+    if (sortBy === 'newest') {
       result = [...result].sort((a, b) => (a.isNew === b.isNew ? 0 : a.isNew ? -1 : 1));
     }
 
     return result;
-  }, [products, selectedCategories, selectedBrands, selectedFamilies, selectedTypes, selectedLineas, maxPrice, sortBy, searchQuery]);
+  }, [products, selectedCategories, selectedBrands, selectedFamilies, showOnlyFavorites, wishlist, sortBy, searchQuery]);
 
   return {
     searchQuery, setSearchQuery,
     selectedBrands, setSelectedBrands,
     selectedCategories, setSelectedCategories,
     selectedFamilies, setSelectedFamilies,
-    selectedTypes, setSelectedTypes,
-    selectedLineas, setSelectedLineas,
-    maxPrice, setMaxPrice,
+    selectedQualities, setSelectedQualities,
+    showOnlyFavorites, setShowOnlyFavorites,
+    activeQuality,
     sortBy, setSortBy,
     visibleCount, setVisibleCount,
     toggleFilter,

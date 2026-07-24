@@ -2,7 +2,7 @@ import { X, Minus, Plus, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export function CartDrawer() {
-  const { isCartOpen, closeCart, items, updateQuantity, removeFromCart, cartTotal } = useCart();
+  const { isCartOpen, closeCart, items, updateQuantity, removeFromCart } = useCart();
 
   if (!isCartOpen) return null;
 
@@ -10,11 +10,12 @@ export function CartDrawer() {
     if (items.length === 0) return;
     
     // Formatear mensaje para WhatsApp
-    let message = "Hola, me gustaría comprar los siguientes perfumes:\n\n";
+    let message = "Hola, me gustaría solicitar la cotización de los siguientes perfumes:\n\n";
     items.forEach(item => {
-      message += `- ${item.quantity}x ${item.name} (${item.brand}) ${item.type ? `[${item.type}]` : ''} - $${item.price * item.quantity}\n`;
+      const versionStr = item.type ? ` - Calidad: ${item.type}` : '';
+      message += `- ${item.quantity}x ${item.name} (${item.brand})${versionStr}\n`;
     });
-    message += `\n*Total: $${cartTotal}*`;
+    message += "\nQuedo atento a la información de precios y disponibilidad. ¡Gracias!";
     
     // Usamos el código de país 57 (Colombia) como prefijo para que el enlace de WhatsApp funcione correctamente
     const whatsappUrl = `https://wa.me/573052550909?text=${encodeURIComponent(message)}`;
@@ -62,7 +63,7 @@ export function CartDrawer() {
           ) : (
             <div className="space-y-6">
               {items.map(item => (
-                <div key={item.id} className="flex gap-4 bg-zinc-900/50 p-3 rounded-xl border border-zinc-800/50">
+                <div key={`${item.id}-${item.type || 'Original'}`} className="flex gap-4 bg-zinc-900/50 p-3 rounded-xl border border-zinc-800/50">
                   <div className="w-20 h-24 rounded-lg overflow-hidden bg-zinc-800 flex-shrink-0">
                     <img 
                       src={item.image} 
@@ -76,14 +77,20 @@ export function CartDrawer() {
                       <div>
                         <span className="text-[10px] text-zinc-500 font-medium uppercase tracking-wider">{item.brand}</span>
                         <h3 className="text-white font-medium leading-tight mt-0.5">{item.name}</h3>
-                        {item.type && item.type !== 'Original' && (
-                          <span className="inline-block mt-1 bg-zinc-800 text-amber-500 text-[10px] px-1.5 py-0.5 rounded font-bold">
-                            {item.type.toUpperCase()}
+                        {item.type && (
+                          <span className={`inline-block mt-1 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase border ${
+                            item.type.toLowerCase() === 'original'
+                              ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+                              : item.type === '1.1'
+                              ? 'bg-sky-500/20 text-sky-300 border-sky-500/30'
+                              : 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+                          }`}>
+                            {item.type}
                           </span>
                         )}
                       </div>
                       <button 
-                        onClick={() => removeFromCart(item.id)}
+                        onClick={() => removeFromCart(item.id, item.type)}
                         className="text-zinc-600 hover:text-red-500 p-1 transition-colors"
                       >
                         <X className="w-4 h-4" />
@@ -93,20 +100,19 @@ export function CartDrawer() {
                     <div className="flex items-center justify-between mt-3">
                       <div className="flex items-center gap-3 bg-zinc-950 border border-zinc-800 rounded-lg px-2 py-1">
                         <button 
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity - 1, item.type)}
                           className="text-zinc-400 hover:text-white transition-colors"
                         >
                           <Minus className="w-3.5 h-3.5" />
                         </button>
                         <span className="text-sm text-white w-4 text-center font-medium">{item.quantity}</span>
                         <button 
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                          onClick={() => updateQuantity(item.id, item.quantity + 1, item.type)}
                           className="text-zinc-400 hover:text-white transition-colors"
                         >
                           <Plus className="w-3.5 h-3.5" />
                         </button>
                       </div>
-                      <span className="text-amber-500 font-medium">${item.price * item.quantity}</span>
                     </div>
                   </div>
                 </div>
@@ -118,18 +124,14 @@ export function CartDrawer() {
         {/* Footer */}
         {items.length > 0 && (
           <div className="border-t border-zinc-900 p-6 bg-zinc-950/80 backdrop-blur-md">
-            <div className="flex justify-between items-center mb-6">
-              <span className="text-zinc-400 font-medium">Subtotal</span>
-              <span className="text-2xl font-serif text-white">${cartTotal}</span>
-            </div>
             <button 
               onClick={handleCheckout}
               className="w-full bg-amber-500 hover:bg-amber-400 text-zinc-950 font-medium py-4 rounded-xl transition-colors shadow-[0_0_20px_rgba(245,158,11,0.2)]"
             >
-              Finalizar Compra
+              Solicitar Cotización por WhatsApp
             </button>
             <p className="text-center text-xs text-zinc-500 mt-4">
-              Serás redirigido a WhatsApp para confirmar tu pedido.
+              Serás redirigido a WhatsApp para confirmar los productos seleccionados.
             </p>
           </div>
         )}

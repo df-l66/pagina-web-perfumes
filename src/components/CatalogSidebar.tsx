@@ -1,25 +1,20 @@
 import { X } from 'lucide-react';
+import { QUALITIES } from '../utils/quality';
 
 interface CatalogSidebarProps {
   isMobileFiltersOpen: boolean;
   setIsMobileFiltersOpen: (v: boolean) => void;
-  TYPES: string[];
-  LINEAS: string[];
   CATEGORIES: string[];
   FAMILIES: string[];
   BRANDS: string[];
-  selectedTypes: string[];
-  setSelectedTypes: React.Dispatch<React.SetStateAction<string[]>>;
-  selectedLineas: string[];
-  setSelectedLineas: React.Dispatch<React.SetStateAction<string[]>>;
+  selectedQualities: string[];
+  setSelectedQualities: React.Dispatch<React.SetStateAction<string[]>>;
   selectedCategories: string[];
   setSelectedCategories: React.Dispatch<React.SetStateAction<string[]>>;
   selectedFamilies: string[];
   setSelectedFamilies: React.Dispatch<React.SetStateAction<string[]>>;
   selectedBrands: string[];
   setSelectedBrands: React.Dispatch<React.SetStateAction<string[]>>;
-  maxPrice: number;
-  setMaxPrice: (v: number) => void;
   toggleFilter: (current: string[], setter: React.Dispatch<React.SetStateAction<string[]>>, item: string) => void;
   filteredCount: number;
 }
@@ -27,13 +22,11 @@ interface CatalogSidebarProps {
 export function CatalogSidebar(props: CatalogSidebarProps) {
   const {
     isMobileFiltersOpen, setIsMobileFiltersOpen,
-    TYPES, LINEAS, CATEGORIES, FAMILIES, BRANDS,
-    selectedTypes, setSelectedTypes,
-    selectedLineas, setSelectedLineas,
+    CATEGORIES, FAMILIES, BRANDS,
+    selectedQualities, setSelectedQualities,
     selectedCategories, setSelectedCategories,
     selectedFamilies, setSelectedFamilies,
     selectedBrands, setSelectedBrands,
-    maxPrice, setMaxPrice,
     toggleFilter, filteredCount
   } = props;
 
@@ -49,45 +42,43 @@ export function CatalogSidebar(props: CatalogSidebarProps) {
       )}
 
       <div className="space-y-8">
-        {/* Tipo / Calidad */}
-        <div className="border-b border-zinc-800 pb-6">
-          <h3 className="text-sm font-medium text-amber-500 uppercase tracking-widest mb-4">Tipo / Calidad</h3>
-          <div className="space-y-3">
-            {TYPES.map((type) => (
-              <label key={type} className="flex items-center group cursor-pointer">
-                <div className="relative flex items-center">
-                  <input 
-                    type="checkbox" 
-                    checked={selectedTypes.includes(type)}
-                    onChange={() => toggleFilter(selectedTypes, setSelectedTypes, type)}
-                    className="peer h-5 w-5 cursor-pointer appearance-none rounded border border-zinc-700 bg-zinc-900 checked:border-amber-500 checked:bg-amber-500 focus:outline-none transition-all" 
-                  />
-                  <svg className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 text-zinc-950" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="2.5 7 5.5 10 11.5 3"></polyline></svg>
-                </div>
-                <span className="ml-3 text-sm text-gray-400 group-hover:text-gray-200 transition-colors">{type}</span>
-              </label>
-            ))}
-          </div>
-        </div>
 
-        {/* Línea */}
+        {/* Calidad / Versión */}
         <div className="border-b border-zinc-800 pb-6">
-          <h3 className="text-sm font-medium text-amber-500 uppercase tracking-widest mb-4">Línea</h3>
+          <h3 className="text-sm font-medium text-amber-500 uppercase tracking-widest mb-4">Calidad / Versión</h3>
           <div className="space-y-3">
-            {LINEAS.map((linea) => (
-              <label key={linea} className="flex items-center group cursor-pointer">
-                <div className="relative flex items-center">
-                  <input 
-                    type="checkbox" 
-                    checked={selectedLineas.includes(linea)}
-                    onChange={() => toggleFilter(selectedLineas, setSelectedLineas, linea)}
-                    className="peer h-5 w-5 cursor-pointer appearance-none rounded border border-zinc-700 bg-zinc-900 checked:border-amber-500 checked:bg-amber-500 focus:outline-none transition-all" 
-                  />
-                  <svg className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 pointer-events-none opacity-0 peer-checked:opacity-100 text-zinc-950" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="2.5 7 5.5 10 11.5 3"></polyline></svg>
-                </div>
-                <span className="ml-3 text-sm text-gray-400 group-hover:text-gray-200 transition-colors">{linea}</span>
-              </label>
-            ))}
+            {QUALITIES.map((quality) => {
+              const isSelected = selectedQualities.includes(quality);
+              return (
+                <label key={quality} className="flex items-center group cursor-pointer">
+                  <div className="relative flex items-center">
+                    <input 
+                      type="radio" 
+                      name="quality_filter"
+                      checked={isSelected}
+                      onClick={() => {
+                        if (isSelected) {
+                          setSelectedQualities([]);
+                        } else {
+                          setSelectedQualities([quality]);
+                        }
+                      }}
+                      onChange={() => {}}
+                      className="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-zinc-700 bg-zinc-900 checked:border-amber-500 checked:bg-amber-500 focus:outline-none transition-all" 
+                    />
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-zinc-950 pointer-events-none opacity-0 peer-checked:opacity-100" />
+                  </div>
+                  <span className={`ml-3 text-sm transition-colors flex items-center gap-2 ${
+                    isSelected ? 'text-amber-400 font-medium' : 'text-gray-300 group-hover:text-amber-400'
+                  }`}>
+                    {quality}
+                    {quality === 'Original' && <span className="text-[10px] text-amber-500/80 font-mono">(100%)</span>}
+                    {quality === '1.1' && <span className="text-[10px] text-sky-400/80 font-mono">(1.1 Replica)</span>}
+                    {quality === 'Preparada' && <span className="text-[10px] text-purple-400/80 font-mono">(Esencia)</span>}
+                  </span>
+                </label>
+              );
+            })}
           </div>
         </div>
 
@@ -151,24 +142,6 @@ export function CatalogSidebar(props: CatalogSidebarProps) {
                 <span className="ml-3 text-sm text-gray-400 group-hover:text-gray-200 transition-colors">{brand}</span>
               </label>
             ))}
-          </div>
-        </div>
-        
-        {/* Rango de Precio */}
-        <div className="pb-6">
-          <h3 className="text-sm font-medium text-amber-500 uppercase tracking-widest mb-4">Precio Máximo</h3>
-          <input 
-            type="range" 
-            min="10" 
-            max="500" 
-            step="10"
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(Number(e.target.value))}
-            className="w-full accent-amber-500 bg-zinc-800 h-2 rounded-lg appearance-none cursor-pointer" 
-          />
-          <div className="flex justify-between text-sm text-gray-300 mt-4 font-medium">
-            <span>$10</span>
-            <span className="text-amber-500">\${maxPrice}</span>
           </div>
         </div>
 

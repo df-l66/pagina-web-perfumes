@@ -170,7 +170,6 @@ export function SurpriseQuiz() {
                   <div className="flex-1 text-center md:text-left">
                     <h3 className="text-3xl font-serif text-amber-500">{recommendedProduct.name}</h3>
                     <p className="text-gray-400 mt-2">{recommendedProduct.brand}</p>
-                    <p className="text-2xl text-white font-light mt-4">${recommendedProduct.price}</p>
                     
                     <div className="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                       <button 
