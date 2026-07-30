@@ -9,6 +9,7 @@ const COLLECTIONS = [
     name: 'Gym & Deportivo', 
     description: '10 fragancias energizantes con notas cítricas, acuáticas, frescas y aromáticas ideales para mantener la frescura durante los entrenamientos.', 
     image: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=1200',
+    curatedIds: [165, 187, 136, 175, 181, 256, 290, 133, 283, 284],
     familyFilter: ['Cítrico', 'Acuático', 'Fresco', 'Aromático', 'Verde', 'Marino']
   },
   { 
@@ -16,6 +17,7 @@ const COLLECTIONS = [
     name: 'Fragancias Nocturnas', 
     description: '10 esencias profundas de maderas oscuras, ámbar, especias y notas orientales diseñadas para destacar en la noche.', 
     image: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&q=80&w=1200',
+    curatedIds: [336, 173, 254, 278, 152, 188, 280, 314, 163, 164],
     familyFilter: ['Amaderado', 'Oriental', 'Especiado', 'Cuero', 'Oud', 'Tabaco', 'Incienso']
   },
   { 
@@ -23,6 +25,7 @@ const COLLECTIONS = [
     name: 'Fiestas & Celebraciones', 
     description: '10 aromas llamativos, dulces, frutales y de alta proyección ideales para destacar y adueñarte del ambiente de fiesta.', 
     image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&q=80&w=1200',
+    curatedIds: [182, 184, 186, 118, 120, 122, 153, 162, 352, 134],
     familyFilter: ['Dulce', 'Frutal', 'Cítrico', 'Gourmand', 'Vainilla', 'Oriental']
   },
   { 
@@ -30,6 +33,7 @@ const COLLECTIONS = [
     name: 'Sexy & Seducción', 
     description: '10 mezclas embriagadoras de gourmand, almizcle sensual, florales cálidos y acordes ambarados que despiertan el deseo.', 
     image: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=1200',
+    curatedIds: [137, 138, 158, 159, 211, 315, 205, 130, 338, 100],
     familyFilter: ['Gourmand', 'Vainilla', 'Almizcle', 'Ámbar', 'Dulce', 'Floral', 'Oriental']
   },
 ];
@@ -40,12 +44,40 @@ export function Collections() {
   const activeCollection = COLLECTIONS.find(c => c.id === activeCollectionId);
   
   const getCollectionProducts = (col: typeof COLLECTIONS[0]) => {
-    if (col.familyFilter.length > 0) {
-      return CATALOG_PRODUCTS.filter(p => 
-        col.familyFilter.some(f => p.family.toLowerCase().includes(f.toLowerCase()))
-      ).slice(0, 10);
+    const products: typeof CATALOG_PRODUCTS = [];
+    const usedIds = new Set<number>();
+    
+    // Add curated items first
+    if (col.curatedIds && col.curatedIds.length > 0) {
+      col.curatedIds.forEach(id => {
+        const p = CATALOG_PRODUCTS.find(item => item.id === id);
+        if (p && !usedIds.has(p.id)) {
+          products.push(p);
+          usedIds.add(p.id);
+        }
+      });
     }
-    return CATALOG_PRODUCTS.slice(0, 10);
+
+    // Fill up to 10 with family match if any curated product is missing
+    if (products.length < 10 && col.familyFilter.length > 0) {
+      const allOtherCuratedIds = new Set(
+        COLLECTIONS.filter(c => c.id !== col.id).flatMap(c => c.curatedIds || [])
+      );
+
+      const fallback = CATALOG_PRODUCTS.filter(p => 
+        !usedIds.has(p.id) &&
+        !allOtherCuratedIds.has(p.id) &&
+        col.familyFilter.some(f => p.family.toLowerCase().includes(f.toLowerCase()))
+      );
+
+      for (const item of fallback) {
+        if (products.length >= 10) break;
+        products.push(item);
+        usedIds.add(item.id);
+      }
+    }
+
+    return products;
   };
 
   const collectionProducts = activeCollection ? getCollectionProducts(activeCollection) : [];

@@ -30,9 +30,9 @@ export function About() {
           <div className="order-2 lg:order-1 relative">
             <div className="absolute -inset-4 border border-amber-500/20 rounded-2xl transform -translate-x-4 translate-y-4 -z-10 hidden md:block"></div>
             <img 
-              src="/fondo.jpeg" 
+              src="/nosotros.jpeg" 
               alt="FRAGANCIAS JM Esencia" 
-              className="rounded-2xl shadow-2xl w-full object-cover aspect-[4/5] border border-zinc-800/80 hover:border-amber-500/30 transition-colors"
+              className="rounded-2xl shadow-2xl w-full h-auto object-contain border border-zinc-800/80 hover:border-amber-500/30 transition-colors"
             />
           </div>
           
